@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>星梦小筑 · 后台管理</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b5cf6'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3E%E6%98%9F%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="aurora" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="grid"></span>
+</div>
+
+<!-- ==================== 登录 ==================== -->
+<section id="login-screen" class="login-screen">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="logo-mark">星</div>
+      <div>
+        <h1>星梦小筑</h1>
+        <p>运营后台 · ADMIN CONSOLE</p>
+      </div>
+    </div>
+
+    <form id="login-form" autocomplete="off">
+      <label class="field">
+        <span>管理员账号</span>
+        <input id="login-username" name="username" type="text" placeholder="请输入账号" autocomplete="username" required />
+      </label>
+      <label class="field">
+        <span>密码</span>
+        <input id="login-password" name="password" type="password" placeholder="请输入密码" autocomplete="current-password" required />
+      </label>
+      <div id="login-error" class="login-error" hidden></div>
+      <button id="login-btn" class="btn btn-primary btn-block" type="submit">登 录</button>
+    </form>
+
+    <div class="login-foot">
+      <span class="dot-live"></span>
+      <span id="login-hint">仅限授权管理员访问</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 主界面 ==================== -->
+<div id="app-shell" class="layout" hidden>
+  <aside class="sidebar">
+    <div class="side-brand">
+      <div class="logo-mark small">星</div>
+      <div class="side-brand-text">
+        <strong id="side-site-name">星梦小筑</strong>
+        <span>管理后台</span>
+      </div>
+    </div>
+
+    <nav id="nav" class="nav"></nav>
+
+    <div class="side-foot">
+      <div class="side-user">
+        <div class="avatar" id="side-avatar">A</div>
+        <div class="side-user-text">
+          <strong id="side-username">admin</strong>
+          <span id="side-role">超级管理员</span>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-sm btn-block" data-action="logout">退出登录</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h2 id="page-title">数据看板</h2>
+        <p id="page-sub">实时掌握站点运行状态</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="pill" id="online-pill" title="当前在线连接数">
+          <span class="dot-live"></span><span id="online-count">–</span> 在线
+        </span>
+        <button class="btn btn-ghost btn-sm" data-action="refresh" title="刷新当前页">刷新</button>
+      </div>
+    </header>
+
+    <div id="view" class="view"></div>
+  </main>
+</div>
+
+<div id="toast-wrap" class="toast-wrap"></div>
+
+<div id="modal" class="modal-mask" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3 id="modal-title">确认操作</h3>
+    <div id="modal-body" class="modal-body"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" data-modal="cancel">取消</button>
+      <button class="btn btn-primary" data-modal="ok">确定</button>
+    </div>
+  </div>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>

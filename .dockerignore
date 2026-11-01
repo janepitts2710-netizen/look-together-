@@ -1,0 +1,14 @@
+# Docker 构建上下文是项目根目录，所以忽略规则要放在这里才生效
+node_modules
+server/node_modules
+unpackage/dist/build/app-plus
+unpackage/cache
+.git
+.idea
+.vscode
+uploads
+server/data
+*.log
+server/.env
+.env
+README.md

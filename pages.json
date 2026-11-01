@@ -1,0 +1,61 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/home",
+      "style": {
+        "navigationBarTitleText": "星梦小筑",
+        "navigationStyle": "custom",
+        "pageOrientation": "auto"
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "星梦影院",
+        "pageOrientation": "auto"
+      }
+    },
+    {
+      "path": "pages/room/room",
+      "style": {
+        "navigationBarTitleText": "星梦观影厅",
+        "pageOrientation": "auto"
+      }
+    },
+    {
+      "path": "pages/gomoku/gomoku",
+      "style": {
+        "navigationBarTitleText": "星梦五子棋",
+        "pageOrientation": "auto"
+      }
+    },
+    {
+      "path": "pages/doudizhu/doudizhu",
+      "style": {
+        "navigationBarTitleText": "星梦斗地主",
+        "pageOrientation": "auto"
+      }
+    },
+    {
+      "path": "pages/music/music",
+      "style": {
+        "navigationBarTitleText": "星梦音乐厅",
+        "pageOrientation": "auto"
+      }
+    },
+    {
+      "path": "pages/music/room",
+      "style": {
+        "navigationBarTitleText": "星梦听歌房",
+        "pageOrientation": "auto"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "星梦小筑",
+    "navigationBarBackgroundColor": "#04070f",
+    "backgroundColor": "#04070f",
+    "pageOrientation": "auto"
+  }
+}

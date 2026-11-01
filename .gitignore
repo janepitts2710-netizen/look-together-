@@ -1,0 +1,31 @@
+node_modules/
+server/node_modules/
+
+# 本地运行数据、数据库、上传文件
+server/data/
+*.db
+*.db-shm
+*.db-wal
+uploads/*
+!uploads/.gitkeep
+
+# 运行时自动下载的 Node / 隧道二进制
+runtime/
+tunnel/
+
+# 日志、临时文件
+*.log
+.unibuild-tmp/
+/dist/
+*.zip
+nul
+
+# 敏感配置、后台测试账号
+.env
+server/.env
+admin_login.json
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store

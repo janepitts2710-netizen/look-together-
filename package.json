@@ -1,0 +1,18 @@
+{
+  "name": "look-together",
+  "version": "1.0.0",
+  "description": "一起看视频 - uni-app Vue3 H5 前端",
+  "scripts": {
+    "start": "cd server && npm start",
+    "tunnel": "cd server && node tunnel.js",
+    "build:h5": "node scripts/build-h5.mjs"
+  },
+  "dependencies": {
+    "dplayer": "^1.26.0",
+    "hls.js": "^1.4.12",
+    "qrcode": "^1.5.1",
+    "socket.io-client": "^4.7.5",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {}
+}

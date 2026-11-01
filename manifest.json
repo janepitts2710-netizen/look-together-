@@ -1,0 +1,44 @@
+{
+    "name" : "星梦小筑",
+    "appid" : "__UNI__442EF36",
+    "description" : "支持 B站免费视频和本地视频的异地同步观看",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    "vueVersion" : "3",
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "mp-weixin" : {
+        "appid" : "wx48468f2233af6fd8",
+        "setting" : {
+            "urlCheck" : false
+        },
+        "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "星梦小筑",
+        "router" : {
+            "mode" : "hash",
+            "base" : "/"
+        },
+        "devServer" : {
+            "port" : 8080,
+            "proxy" : {
+                "/api" : {
+                    "target" : "http://localhost:3000",
+                    "changeOrigin" : true
+                },
+                "/uploads" : {
+                    "target" : "http://localhost:3000",
+                    "changeOrigin" : true
+                },
+                "/socket.io" : {
+                    "target" : "http://localhost:3000",
+                    "changeOrigin" : true,
+                    "ws" : true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#04070f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="星梦小筑：一起看电影、五子棋、斗地主、同步听歌" />
+    <title>星梦小筑</title>
+    <!-- 补上 favicon：不加的话每个页面都会白请求一次 /favicon.ico 拿 404 -->
+    <link rel="icon" type="image/svg+xml" href="./static/favicon.svg" />
+
+    <!--
+      首屏底色（必须内联，不能等 CSS）
+      以前这里是空的，浏览器先画白底，等 JS 拉起 Vue、CSS 生效后才变深色，
+      手机上表现为「打开先白一下再黑一下」的闪屏。现在主题是浅绿白，
+      内联一段纯 CSS 渐变，首帧就是最终配色，页面切换的空档也不会闪。
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        background-color: #04070f;
+        color-scheme: dark;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        /* 关掉安卓/iOS 点击时那层灰色高亮，闪一下很廉价 */
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      /* 静态清新底色：纯渐变，零动画零滤镜，任何机器上都几乎不耗性能 */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(80% 55% at 50% -10%, #12224a 0%, rgba(18, 34, 74, 0) 65%),
+          radial-gradient(70% 50% at 88% 110%, #1a1035 0%, rgba(26, 16, 53, 0) 70%),
+          linear-gradient(180deg, #04070f 0%, #060b18 52%, #04070f 100%);
+      }
+
+      /* 启动占位：应用挂载完成后 Vue 会往 #app 里填内容，
+         下面的相邻选择器立刻把它隐藏，不需要额外 JS 清理 */
+      .boot-hint {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 46%;
+        text-align: center;
+        font: 13px/1.6 -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        letter-spacing: 0.22em;
+        color: #8fa3d9;
+        transition: opacity 0.25s ease;
+      }
+
+      #app:not(:empty) + .boot-hint {
+        opacity: 0;
+        visibility: hidden;
+      }
+    </style>
+
+    <!--
+      首屏脚本策略（请勿改回外网 CDN）
+      这里只保留一个同步脚本：socket.io 客户端，本地同源 46KB，所有页面都要用。
+      DPlayer / hls.js / jsQR / qrcode 全部改为「用到才加载」，见 utils/load-script.js：
+        · DPlayer + hls.light  约 660KB  → 只在观影厅播放时下载
+        · jsQR                 约 250KB  → 只在打开扫码面板时下载
+        · qrcode               约 23KB   → 只在房间页出二维码时下载
+      这几个以前都写在 head 里同步加载，手机必须等它们下载并执行完才渲染；
+      而 jsdelivr 在国内手机上经常超时，就表现为「本机秒开、手机白屏很久」。
+    -->
+    <script src="./static/lib/socket.io.min.js"></script>
+
+    <!--preload-links-->
+    <!--app-context-->
+  </head>
+  <body>
+    <div id="app"><!--app-html--></div>
+    <div class="boot-hint">正在进入星梦小筑</div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
